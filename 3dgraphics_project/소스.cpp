@@ -111,7 +111,10 @@ void rendering(void) {
 	draw_rectangle();
 
 	glColor3f(a, a, a);
-	if (a >= 1) printf("성공!\n");
+	if (a >= 1) {
+		printf("성공!\n");
+		glClearColor(0, 0, 0, 0);
+	}
 	draw_big_ball();
 
 	glutSwapBuffers();
