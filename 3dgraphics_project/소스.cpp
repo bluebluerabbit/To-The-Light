@@ -85,7 +85,7 @@ void rendering(void) {
 	if (move) {
 		ball.y += velocity;
 		velocity += plus;
-		printf("%lf %lf %d\n", ball.x, ball.y, move);
+		//printf("%lf %lf %d\n", ball.x, ball.y, move);
 		if (ball.y >= 510 - big_ball_radius - ball_radius) {
 			// ball.y = 200;
 			a += 0.05;
@@ -99,7 +99,7 @@ void rendering(void) {
 	if (back) {
 		ball.y -= velocity;
 		velocity += plus;
-		printf("%lf %lf %d\n", ball.x, ball.y, back);
+		//printf("%lf %lf %d\n", ball.x, ball.y, back);
 		if (ball.y <= 200) {
 			ball.y = 200;
 			back = false;
@@ -110,7 +110,8 @@ void rendering(void) {
 
 	draw_rectangle();
 
-	glColor3f(a, a,  a);
+	glColor3f(a, a, a);
+	if (a >= 1) printf("성공!\n");
 	draw_big_ball();
 
 	glutSwapBuffers();
@@ -126,12 +127,11 @@ void reshape(int w, int h) {
 
 void SpecialKey(int key, int x, int y) {
 	switch (key) {
-	case GLUT_KEY_UP: // 위쪽 방향키
+	case GLUT_KEY_UP:
 		move = true;
 		break;
 	}
 
-	// 화면 재구성
 	glutPostRedisplay();
 }
 
